@@ -31,10 +31,12 @@ public class OtusAutorizationTest {
         driver.get("https://otus.home.kartushin.su/training.html");
         driver.findElement(By.id("textInput")).sendKeys("test");
         List<WebElement> elements = driver.findElements(By.xpath("//html/body/div/div[1]/label"));
+        System.out.println(elements.size() + "- количество найденных элементов");
     }
 
     @Test
     public void fill2() {
+
 
     }
 
