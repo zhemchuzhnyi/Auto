@@ -69,7 +69,8 @@ public class OtusAutorizationTest {
     }
     @AfterMethod
     public void endDriver() {
-        if Driver
+        if (driver != null) { // Проверяем, что драйвер был инициализирован
+            driver.quit(); // Закрываем браузер и завершаем сессию WebDriver
+        }
     }
-
 }
