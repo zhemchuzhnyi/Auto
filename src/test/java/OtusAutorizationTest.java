@@ -43,6 +43,12 @@ public class OtusAutorizationTest {
 
         String text = label.getText();
         System.out.println(text + "текст в лейбле");
+
+        String text2 = label.getAttribute("value");
+        System.out.println(text2 + " Текст в лейбле новый способ");
+
+        String x = label.getCssValue("padding");
+        System.out.println(x + " размер элемента");
     }
 
     @Test
