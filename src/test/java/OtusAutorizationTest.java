@@ -1,13 +1,17 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
+import java.sql.Driver;
 import java.time.Duration;
 import java.util.List;
 
@@ -49,12 +53,23 @@ public class OtusAutorizationTest {
 
         String x = label.getCssValue("padding");
         System.out.println(x + " размер элемента");
+
+        Assertions.assertEquals("11px",x);
     }
 
     @Test
     public void fill2() {
+        driver.get("https://otus.home.kartushin.su/training.html");
+        WebElement checkbox = driver.findElement(By.id("checkbox"));
+        checkbox.click();
+        driver.switchTo().alert().accept();
 
+        Assertions.assertTrue(checkbox.isSelected());
 
+    }
+    @AfterMethod
+    public void endDriver() {
+        if Driver
     }
 
 }
