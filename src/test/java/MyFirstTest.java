@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MyFirstTest {
     private static WebDriver driver;
-    private  final Logger logger =LogManager.getLogger(MyFirstTest.class);
+    private  final Logger logger = LogManager.getLogger(MyFirstTest.class);
     @BeforeAll
     static void beforeAll() {
         //только один раз выполнение
