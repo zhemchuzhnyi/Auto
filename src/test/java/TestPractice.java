@@ -1,6 +1,8 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -78,6 +80,35 @@ public class TestPractice {
         // Удалить все куки, убедиться что их нет
         driver.manage().deleteAllCookies();
         Assertions.assertEquals(0, driver.manage().getCookies().size());
+
+    }
+
+    @Test
+    public void windowTest() {
+        // Группа А: Запустить тест в полном окне («не киоск»), получить его размер
+        driver.manage().window().maximize();
+        System.out.println(driver.manage().window().getSize());
+
+        // Группа Б: Запустить тест в расширении 800 на 600, получить его позицию
+        driver.manage().window().setSize(new Dimension(800,600));
+        System.out.println(driver.manage().window().getPosition());
+
+        // Группа В: Тоже, что группа Б + передвинуть браузер по квадрату (четырем точкам)
+        Point point = driver.manage().window().getPosition();
+        point.x += 100;
+        point.y += 0;
+        driver.manage().window().setPosition(point);
+        point.x += 0;
+        point.y += 100;
+        driver.manage().window().setPosition(point);
+        point.x += 100;
+        point.y += 0;
+        driver.manage().window().setPosition(point);
+        point.x += 0;
+        point.y += 100;
+        driver.manage().window().setPosition(point);
+
+
 
     }
 }
