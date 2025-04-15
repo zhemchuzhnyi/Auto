@@ -2,6 +2,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -47,5 +49,10 @@ public class TestPractice {
         if (driver != null) {
             driver.quit(); // Закрываем браузер и все связанные с ним процессы
         }
+    }
+
+    @Test
+    public void test() {
+        driver.manage().addCookie(new Cookie("Otus4", "Value4"));
     }
 }
